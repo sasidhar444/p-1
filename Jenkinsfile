@@ -18,6 +18,6 @@ node {
     stage('Ansible Deploy') {  
           sh 'ls -lrt'
           sh 'ansible --version'
-          //sh 'ansible-playbook playbook.yml -i rls10_04 -e ” host=$DeploymentType$Application$Env app=$Application arti=$Artifact envs=$Env” '
+          sh 'ansible-playbook playbook.yml -i inventory -e ”app=cart” '
         }
 }
