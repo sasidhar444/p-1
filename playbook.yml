@@ -1,0 +1,30 @@
+---
+    - name: Deploy
+      hosts: "{{host}}"
+      vars:
+        url: "https://nexus.d.lowes.com/repository/maven-releases/com/lowes/{{app}}/{{arti}}/{{app}}-{{arti}}.tar.gz"
+       # app: "cart"
+      tasks:
+
+      - name: Creating the dir
+        file:
+          path: /tmp/{{app}}/source
+          state: directory
+
+      - name: removing the content
+        shell: rm -rf /tmp/{{app}}/source/*
+        args:
+          warn: false
+
+      - name: Unarchiving the tar file
+        unarchive:
+          src: "{{ url }}"
+          dest: /tmp/{{app}}/source
+          remote_src: yes
+
+      - name : Start PM2 Module
+        shell: cd /tmp/{{app}}/source/ && pm2 startOrRestart {{envs}}.json --env {{envs}}.json && echo 'flush_all' |nc localhost 11211 && echo 'stats reset' | nc localhost 11211
+        args:
+          warn: false
+          
+
