@@ -18,7 +18,7 @@ node {
     stage('Ansible Deploy') {  
           sh 'ls -lrt'
           sh 'ansible --version'
-          sh 'ansible all -m ping -i hosts'
+          sh 'ansible all -m ping -i inventory'
           //sh 'ansible-playbook playbook.yml -i inventory -e ”host=cart app=cart” '
         }
 }
