@@ -1,6 +1,4 @@
-[nodecartdtq1]
+[Master]
 localhost ansible_connection=local
 [DEV]
-vmlnxnodect19
-[UAT]
-vmlnxnodect20
+10.128.0.5
