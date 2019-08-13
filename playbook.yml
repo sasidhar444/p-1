@@ -2,7 +2,7 @@
     - name: Deploy
       hosts: "{{host}}"
       vars:
-        url: "https://nexus.d.lowes.com/repository/maven-releases/com/lowes/{{app}}/{{arti}}/{{app}}-{{arti}}.tar.gz"
+        url: "target/*.jar"
        # app: "cart"
       tasks:
 
@@ -22,9 +22,5 @@
           dest: /tmp/{{app}}/source
           remote_src: yes
 
-      - name : Start PM2 Module
-        shell: cd /tmp/{{app}}/source/ && pm2 startOrRestart {{envs}}.json --env {{envs}}.json && echo 'flush_all' |nc localhost 11211 && echo 'stats reset' | nc localhost 11211
-        args:
-          warn: false
           
 
