@@ -19,6 +19,6 @@ node {
           sh 'ls -lrt'
           sh 'ansible --version'
           sh 'ansible all -m ping -i inventory'
-          //sh 'ansible-playbook playbook.yml -i inventory -e ”host=cart app=cart” '
+          sh 'ansible-playbook playbook.yml -i inventory -e ”app=cart” '
         }
 }
