@@ -1,7 +1,7 @@
 ---
     - name: Deploy
       vars:
-        url: "http://mirrors.jenkins.io/war-stable/latest/jenkins.war"
+        url: "https://console.cloud.google.com/storage/browser/b-2"
        # app: "cart"
       tasks:
 
