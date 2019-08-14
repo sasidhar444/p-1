@@ -1,8 +1,7 @@
 ---
     - name: Deploy
-      hosts: "{{host}}"
       vars:
-        url: "target/*.jar"
+        url: "http://mirrors.jenkins.io/war-stable/latest/jenkins.war"
        # app: "cart"
       tasks:
 
