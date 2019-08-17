@@ -16,10 +16,10 @@ node {
       archiveArtifacts 'target/*.jar'
    }
    
-     stage('Post') {
+ /*    stage('Post') {
       //gsutil cp 'target/*.jar' 'gs://jenkins--bucket'
     googleStorageUpload bucket: 'gs://yevaru', credentialsId: 'pulihora-b6a314b2fcc3.json', pattern: 'target/*.jar'
-   }
+   }*/
    
     /*stage('Ansible Deploy') {  
           sh 'ls -lrt'
